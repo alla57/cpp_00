@@ -10,7 +10,7 @@ SRC_PATH =	megaphone.cpp
 
 SRC = $(SRC_PATH)
 
-OBJ	= $(SRC:.c=.o)
+OBJ	= $(SRC:.cpp=.o)
 
 all : $(NAME)
 
