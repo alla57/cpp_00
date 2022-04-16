@@ -2,25 +2,31 @@
 
 //		CONSTRUCTORS AND DESTRUCTORS
 
-ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0){
-	std::cout << "Deflault constructor called" << std::endl;
+ClapTrap::ClapTrap(void) : name("default"), hitPoints(10), energyPoints(10), attackDamage(0){
+	std::cout << "ClapTrap Default constructor called" << std::endl;
+	return ;
+}
+
+ClapTrap::ClapTrap(std::string const & name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0){
+	std::cout << "ClapTrap Name constructor called" << std::endl;
 	return ;
 }
 
 ClapTrap::ClapTrap(ClapTrap const & src){
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "ClapTrap Copy constructor called" << std::endl;
 	*this = src;
 	return ;
 }
 
 ClapTrap::~ClapTrap(){
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap Destructor called" << std::endl;
 	return ;
 }
 
 //		ASSIGNEMENT OPERATOR
 
 ClapTrap & ClapTrap::operator=(ClapTrap const & rhs){
+	std::cout << "ClapTrap Assignement operator called!" << std::endl;
 	this->name = rhs.getName();
 	this->hitPoints = rhs.getHitPoints();
 	this->energyPoints = rhs.getEnergyPoints();

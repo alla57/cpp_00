@@ -8,6 +8,7 @@ NAME = ClapTrap
 
 SRC_PATH =	main.cpp			\
 			ClapTrap.class.cpp	\
+			ScavTrap.class.cpp	\
 
 SRC = $(SRC_PATH)
 
