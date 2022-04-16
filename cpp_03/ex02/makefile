@@ -4,11 +4,12 @@ RM = rm -rf
 
 CFLAGS = -Wall -Wextra -Wno-used -Werror -I./
 
-NAME = ScavTrap
+NAME = FragTrap
 
 SRC_PATH =	main.cpp			\
 			ClapTrap.class.cpp	\
 			ScavTrap.class.cpp	\
+			FragTrap.class.cpp	\
 
 SRC = $(SRC_PATH)
 
