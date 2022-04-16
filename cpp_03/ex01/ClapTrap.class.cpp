@@ -2,13 +2,8 @@
 
 //		CONSTRUCTORS AND DESTRUCTORS
 
-ClapTrap::ClapTrap(void) : name("default"), hitPoints(10), energyPoints(10), attackDamage(0){
-	std::cout << "Deflault constructor called" << std::endl;
-	return ;
-}
-
 ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0){
-	std::cout << "Int constructor called" << std::endl;
+	std::cout << "Deflault constructor called" << std::endl;
 	return ;
 }
 
