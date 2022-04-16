@@ -1,5 +1,6 @@
 #include <iostream>
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main( void )
 {
@@ -18,5 +19,15 @@ int main( void )
 	b.takeDamage(500);
 	c.beRepaired(8);
 	b.beRepaired(8);
+	std::cout << std::endl;
+	FragTrap d("samir");
+	FragTrap e(d);
+	d.attack("eric");
+	e.attack("sarah");
+	d.highFivesGuys();
+	d.takeDamage(5);
+	e.takeDamage(500);
+	d.beRepaired(8);
+	e.beRepaired(8);
 	return 0;
 }
