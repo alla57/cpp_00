@@ -2,7 +2,7 @@
 
 //		CONSTRUCTORS AND DESTRUCTORS
 
-Animal::Animal(void) : type("animal"){
+Animal::Animal(void) : type("Animal"){
 	std::cout << "Animal Default constructor called" << std::endl;
 	return ;
 }
@@ -28,6 +28,7 @@ Animal const & Animal::operator=(Animal const & rhs){
 //		ACTION FUNCTION MEMBER
 
 void	Animal::makeSound(void) const{
+	std::cout << "Animal sound!" << std::endl;
 	return ;
 }
 
