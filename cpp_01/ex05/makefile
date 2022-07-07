@@ -2,12 +2,12 @@ CC = g++
 
 RM = rm -rf
 
-CFLAGS = -Wall -Wextra -Wno-used -Werror -I./
+CFLAGS = -Wall -Wextra -Wno-used -Werror -std=c++98 -I./
 
-NAME = karen
+NAME = harl
 
 SRC_PATH =	main.cpp			\
-			Karen.class.cpp		\
+			Harl.class.cpp		\
 
 SRC = $(SRC_PATH)
 

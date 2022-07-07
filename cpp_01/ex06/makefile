@@ -2,11 +2,12 @@ CC = g++
 
 RM = rm -rf
 
-CFLAGS = -Wall -Wextra -Wno-used -Werror -std=c++98 -I./
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -I./
 
-NAME = brain
+NAME = harl
 
 SRC_PATH =	main.cpp			\
+			Harl.class.cpp		\
 
 SRC = $(SRC_PATH)
 

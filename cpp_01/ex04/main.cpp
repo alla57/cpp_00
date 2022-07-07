@@ -13,26 +13,27 @@ int main(int argc, char** argv)
 	std::ifstream inFile;
 	std::ofstream outFile;
 
-	inFile.open(inFileName);
+	inFile.open(inFileName.c_str());
 	if (inFile.fail())
 		return (1);
-	outFile.open(outFileName);
+	outFile.open(outFileName.c_str());
 	std::string line;
-	int s1Pos;
+	int s1Pos = 0;
 	int i = 0;
 	while (!inFile.eof())
 	{
 		if (i != 0)
 			outFile << std::endl;
 		std::getline(inFile, line);
-		while ((s1Pos = line.find(s1)) != -1)
+		s1Pos = 0;
+		while ((s1Pos = line.find(s1, s1Pos)) != -1)
 		{
 			line.erase(s1Pos, s1.length());
 			line.insert(s1Pos, s2);
+			s1Pos += s2.length();
 		}
 		outFile << line;
 		++i;
 	}
-	std::cout << "fini" << std::endl;
 	return (0);
 }
