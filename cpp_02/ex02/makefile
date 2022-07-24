@@ -2,7 +2,7 @@ CC = g++
 
 RM = rm -rf
 
-CFLAGS = -Wall -Wextra -Wno-used -Werror -I./
+CFLAGS = -Wall -Wextra -Wno-used -Werror -std=c++98 -I./
 
 NAME = fixed
 
