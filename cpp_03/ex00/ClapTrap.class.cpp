@@ -81,7 +81,10 @@ void ClapTrap::beRepaired(unsigned int amount){
 		std::cout << "ClapTrap " << name << "'s Hit Points or Energy Points are down to 0, it can't be repaired anymore!" << std::endl;
 		return ;
 	}
-	hitPoints += amount;
+	if (hitPoints + amount < hitPoints)
+		hitPoints = 4294967295;
+	else
+		hitPoints += amount;
 	std::cout << "ClapTrap " << name << " is being repared and it regains " << amount << " Hit Points " << "and is now " << hitPoints << " Hit Points!" << std::endl;
 	--energyPoints;
 	return ;
