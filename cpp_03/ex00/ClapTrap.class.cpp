@@ -8,7 +8,7 @@ ClapTrap::ClapTrap(void) : name("default"), hitPoints(10), energyPoints(10), att
 }
 
 ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0){
-	std::cout << "Int constructor called" << std::endl;
+	std::cout << name << "constructor called" << std::endl;
 	return ;
 }
 
@@ -55,7 +55,7 @@ unsigned int	ClapTrap::getAttackDamage() const{
 
 void ClapTrap::attack(const std::string& target){
 	if (hitPoints == 0 || energyPoints == 0){
-		std::cout << "ClapTrap " << name << "'s Hit Points or Energy Points are down to 0, it can't attack anymore damage!" << std::endl;
+		std::cout << "ClapTrap " << name << "'s Hit Points or Energy Points are down to 0, it can't attack anymore!" << std::endl;
 		return ;
 	}
 	std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
