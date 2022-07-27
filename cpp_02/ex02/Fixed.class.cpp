@@ -68,7 +68,9 @@ int		Fixed::power(int nb, int exp) const
 
 Fixed & Fixed::min(Fixed & first, Fixed & second)
 {
-	return (first.min(first, second));
+	if (first < second)
+		return (first);
+	return (second);
 }
 
 Fixed const & Fixed::min(Fixed const & first, Fixed const & second)
@@ -80,7 +82,9 @@ Fixed const & Fixed::min(Fixed const & first, Fixed const & second)
 
 Fixed & Fixed::max(Fixed & first, Fixed & second)
 {
-	return (first.max(first, second));
+	if (first > second)
+		return (first);
+	return (second);
 }
 Fixed const & Fixed::max(Fixed const & first, Fixed const & second)
 {
