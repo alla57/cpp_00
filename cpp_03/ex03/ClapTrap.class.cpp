@@ -41,7 +41,7 @@ std::string		ClapTrap::getName() const{
 }
 
 unsigned int	ClapTrap::getHitPoints() const{
-	return (this->energyPoints);
+	return (this->hitPoints);
 }
 
 unsigned int	ClapTrap::getEnergyPoints() const{

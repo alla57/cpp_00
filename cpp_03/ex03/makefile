@@ -6,10 +6,11 @@ CFLAGS = -Wall -Wextra -Wno-used -Werror -I./
 
 NAME = DiamondTrap
 
-SRC_PATH =	main.cpp			\
-			ClapTrap.class.cpp	\
-			ScavTrap.class.cpp	\
-			FragTrap.class.cpp	\
+SRC_PATH =	main.cpp				\
+			ClapTrap.class.cpp		\
+			ScavTrap.class.cpp		\
+			FragTrap.class.cpp		\
+			DiamondTrap.class.cpp	\
 
 SRC = $(SRC_PATH)
 
