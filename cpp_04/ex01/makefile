@@ -2,7 +2,7 @@ CC = g++
 
 RM = rm -rf
 
-CFLAGS = -Wall -Wextra -Wno-used -Werror -I./
+CFLAGS = -Wall -Wextra -Werror -I./
 
 NAME = Brain
 
