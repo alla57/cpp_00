@@ -3,13 +3,14 @@
 
 //			CONSTRUCTORS
 
-Ice::Ice() : type("ice"), AMateria(type){
+Ice::Ice() : AMateria("ice"){
 	std::cout << "Ice default constructor called" << std::endl;
 	return ;
 }
 
-Ice::Ice(Ice const & src) : AMateria(src.getType()){
+Ice::Ice(Ice const & src) : AMateria("ice"){
 	std::cout << "Ice copy constructor called" << std::endl;
+	*this = src;
 	return ;
 }
 
@@ -19,13 +20,17 @@ Ice::~Ice(){
 }
 
 Ice const & Ice::operator=(Ice const & rhs){
+	if (*this == rhs)
+		return (*this);
+	type = rhs.getType();
+	return (*this);
 }
 
 //			METHODS
 
 AMateria*	Ice::clone() const
 {
-	//
+	return (new Ice);
 }
 
 void	Ice::use(ICharacter& target)
