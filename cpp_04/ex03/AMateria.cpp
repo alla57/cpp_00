@@ -26,9 +26,9 @@ AMateria::~AMateria(){
 
 //			ASSIGNEMENT OPERATOR OVERLOADING
 const AMateria &	AMateria::operator=(const AMateria & rhs){
-	if (*this == rhs)
+	if (this == &rhs)
 		return (*this);
-	type = rhs.getType();
+	this->type = rhs.getType();
 	return (*this);
 }
 

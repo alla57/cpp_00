@@ -29,10 +29,14 @@ Character::~Character(){
 //					ASSIGNEMENT OPERATOR
 
 Character const & Character::operator=(const Character & rhs){
-	if (*this == rhs)
+	if (this == &rhs)
 		return (*this);
-	for (int i = 0; i < rhs.getNOfMateria(); i++)
-		_inventory[i] = rhs.getMateria(i);
+	int i = 0;
+	while (i < rhs.getNOfMateria())
+	{
+		*(_inventory[i]) = *(rhs.getMateria(i));
+		++i;
+	}
 	_idx = rhs.getNOfMateria();
 	_name = rhs.getName();
 	return (*this);
@@ -67,13 +71,14 @@ void				Character::unequip(int idx)
 void				Character::use(int idx, ICharacter& target)
 {
 	if (idx >= 0 && idx < 4 && idx < _idx)
-		_inventory[idx].use(target);
+		_inventory[idx]->use(target);
 }
 
-AMateria const * const		Character::getMateria(int idx) const
+AMateria*		Character::getMateria(int idx) const
 {
 	if (idx < _idx && idx >= 0 && idx <= 3)
 		return (_inventory[idx]);
+	return (0);
 }
 
 int			Character::getNOfMateria() const

@@ -13,13 +13,13 @@ public:
 	Character(const Character & src);
 	~Character();
 
-	operator=(const Character & rhs);
+	Character const & operator=(const Character & rhs);
 
 	std::string const & getName() const;
 	void equip(AMateria* m);
 	void unequip(int idx);
 	void use(int idx, ICharacter& target);
-	AMateria const * const	getMateria(int idx) const;
+	AMateria*	getMateria(int idx) const;
 	int						getNOfMateria() const;
 private:
 	std::string _name;

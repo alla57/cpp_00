@@ -22,10 +22,10 @@ MateriaSource::~MateriaSource(){
 //			ASSIGNEMENT OPERATOR OVERLOAD
 
 const MateriaSource &	MateriaSource::operator=(const MateriaSource & rhs){
-	if (*this == rhs)
+	if (this == &rhs)
 		return (*this);
 	for (int i = 0; i < rhs.getNOfMateria(); i++)
-		_inventory[i] = rhs.getMateria(i);
+		*_inventory[i] = *(rhs.getMateria(i));
 	_idx = rhs.getNOfMateria();
 	return (*this);
 }
@@ -36,26 +36,25 @@ void		MateriaSource::learnMateria(AMateria* m)
 {
 	if (_idx > 3)
 		return ;
-	_inventory[_idx] = m.clone();
+	_inventory[_idx] = m->clone();
 	_idx++;
 }
 
 AMateria*	MateriaSource::createMateria(std::string const & type)
 {
-	AMateria* m;
 	int i = 0;
 
 	if (_idx > 0)
 	{
 		while (i < _idx)
 		{
-			if ((_inventaire[i])->getType() == type)
+			if ((_inventory[i])->getType() == type)
 				break;
 			++i;
 			if (i == _idx)
 				return (0);
 		}
-		return (_inventaire[i]->clone());
+		return (_inventory[i]->clone());
 	}
 	return (0);
 }
@@ -65,8 +64,9 @@ int			MateriaSource::getNOfMateria() const
 	return (_idx);
 }
 
-AMateria const * const		MateriaSource::getMateria(int idx) const
+AMateria*	MateriaSource::getMateria(int idx) const
 {
 	if (idx < _idx && idx >= 0 && idx <= 3)
 		return (_inventory[idx]);
+	return (0);
 }

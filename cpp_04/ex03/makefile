@@ -10,6 +10,7 @@ SRC_PATH =	main.cpp				\
 			AMateria.cpp			\
 			Character.cpp			\
 			Ice.cpp					\
+			Cure.cpp				\
 			MateriaSource.cpp		\
 
 SRC = $(SRC_PATH)

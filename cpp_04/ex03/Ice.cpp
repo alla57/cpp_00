@@ -20,9 +20,8 @@ Ice::~Ice(){
 }
 
 Ice const & Ice::operator=(Ice const & rhs){
-	if (*this == rhs)
+	if (this == &rhs)
 		return (*this);
-	type = rhs.getType();
 	return (*this);
 }
 
