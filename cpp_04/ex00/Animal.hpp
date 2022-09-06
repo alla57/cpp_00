@@ -7,7 +7,7 @@ class Animal
 public:
 	Animal(void);
 	Animal(Animal const & rhs);
-	~Animal();
+	virtual ~Animal();
 
 	Animal const & operator=(Animal const &);
 

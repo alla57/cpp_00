@@ -5,24 +5,29 @@
 int main()
 {
 	const Animal* meta = new Animal();
-	const Animal* inu = new Dog();
-	const Animal* inu2 = new Dog();
-	inu2 = inu;
-	const Animal* neko = new Cat();
-	std::cout << inu->getType() << " " << std::endl;
-	std::cout << inu2->getType() << " " << std::endl;
-	std::cout << neko->getType() << " " << std::endl;
+	const Animal* chien = new Dog();
+	const Animal* chien2 = new Dog();
+	const Animal* chat = new Cat();
+	std::cout << chien->getType() << " " << std::endl;
+	std::cout << chien2->getType() << " " << std::endl;
+	std::cout << chat->getType() << " " << std::endl;
 	std::cout << meta->getType() << " " << std::endl;
-	inu->makeSound();
-	inu2->makeSound();
-	neko->makeSound();
+	chien->makeSound();
+	chien2->makeSound();
+	chat->makeSound();
 	meta->makeSound();
 	std::cout << std::endl;
 	const WrongAnimal* meta2 = new WrongAnimal();
-	const WrongAnimal* neko2 = new WrongCat();
+	const WrongAnimal* chat2 = new WrongCat();
 	std::cout << meta2->getType() << " " << std::endl;
-	std::cout << neko2->getType() << " " << std::endl;
-	neko2->makeSound();
+	std::cout << chat2->getType() << " " << std::endl;
+	chat2->makeSound();
 	meta2->makeSound();
+	delete meta;
+	delete chien;
+	delete chien2;
+	delete chat;
+	delete meta2;
+	delete chat2;
 	return (0);
 }
