@@ -14,9 +14,10 @@ public:
 
 	const MateriaSource & operator=(MateriaSource const & rhs);
 
-	void					learnMateria(AMateria* m);
-	AMateria*				createMateria(std::string const & type);
-	int						getNOfMateria() const;
+	void		learnMateria(AMateria* m);
+	AMateria*	createMateria(std::string const & type);
+
+	int			getNOfMateria() const;
 	AMateria*	getMateria(int idx) const;
 private:
 	AMateria*	_inventory[4];

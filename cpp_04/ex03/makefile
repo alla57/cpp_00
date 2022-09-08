@@ -4,7 +4,7 @@ RM = rm -rf
 
 CFLAGS = -Wall -Wextra -Werror -I./
 
-NAME = Character
+NAME = Materia
 
 SRC_PATH =	main.cpp				\
 			AMateria.cpp			\

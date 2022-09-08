@@ -5,11 +5,13 @@
 
 Character::Character() : ICharacter(), _name("default"), _idx(0){
 	std::cout << "Character default constructor called" << std::endl;
+	unEquippedMateria->next = NULL;
 	return ;
 }
 
 Character::Character(const std::string & name) : ICharacter(), _name(name), _idx(0){
 	std::cout << "Character " << name << " constructor called" << std::endl;
+	unEquippedMateria->next = NULL;
 	return ;
 }
 
@@ -31,21 +33,24 @@ Character::~Character(){
 Character const & Character::operator=(const Character & rhs){
 	if (this == &rhs)
 		return (*this);
+	_idx = rhs._idx;
+	_name = rhs.getName();
 	int i = 0;
-	while (i < rhs.getNOfMateria())
+	int NOfMateria = _idx;
+	AMateria *tmp;
+	while (i < NOfMateria)
 	{
-		*(_inventory[i]) = *(rhs.getMateria(i));
+		tmp = _inventory[i];
+		_inventory[i] = _inventory->clone();
+		delete tmp;
 		++i;
 	}
-	_idx = rhs.getNOfMateria();
-	_name = rhs.getName();
 	return (*this);
 }
 
 //					METHODS
 
-std::string const & Character::getName() const
-{
+std::string const & Character::getName() const{
 	return (_name);
 }
 
@@ -72,16 +77,4 @@ void				Character::use(int idx, ICharacter& target)
 {
 	if (idx >= 0 && idx < 4 && idx < _idx)
 		_inventory[idx]->use(target);
-}
-
-AMateria*		Character::getMateria(int idx) const
-{
-	if (idx < _idx && idx >= 0 && idx <= 3)
-		return (_inventory[idx]);
-	return (0);
-}
-
-int			Character::getNOfMateria() const
-{
-	return (_idx);
 }

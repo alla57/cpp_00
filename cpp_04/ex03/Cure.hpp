@@ -12,8 +12,8 @@ public :
 
 	const Cure & operator=(const Cure & rhs);
 
-	AMateria* clone() const;
-	void use(ICharacter& target);
+	AMateria*	clone() const;
+	void		use(ICharacter& target) const;
 };
 
 #endif

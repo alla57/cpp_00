@@ -22,18 +22,18 @@ Cure::~Cure(){
 Cure const & Cure::operator=(Cure const & rhs){
 	if (this == &rhs)
 		return (*this);
+	type = rhs.getType();
 	return (*this);
 }
 
 //			METHODS
 
-AMateria*	Cure::clone() const
-{
-	return (new Cure);
+AMateria*	Cure::clone() const{
+	return (new Cure(*this));
 }
 
 void	Cure::use(ICharacter& target)
 {
-	std::cout << "* heals " << target.getName() << " wounds *" << std::endl;
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 	return ;
 }

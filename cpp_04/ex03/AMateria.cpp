@@ -3,8 +3,8 @@
 
 //					CONSTRUCTORS
 
-AMateria::AMateria(){
-	std::cout << "AMateria Default constructor called" <<std::endl;
+AMateria::AMateria() : type("default"){
+	std::cout << "AMateria " << type << " constructor called" << std::endl;
 	return ;
 }
 
@@ -28,13 +28,12 @@ AMateria::~AMateria(){
 const AMateria &	AMateria::operator=(const AMateria & rhs){
 	if (this == &rhs)
 		return (*this);
-	this->type = rhs.getType();
+	type = rhs.getType();
 	return (*this);
 }
 
 //					METHODS
 
-std::string const &	AMateria::getType() const
-{
+std::string const &	AMateria::getType() const{
 	return (type);
 }

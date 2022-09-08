@@ -15,16 +15,16 @@ public:
 
 	Character const & operator=(const Character & rhs);
 
-	std::string const & getName() const;
 	void equip(AMateria* m);
 	void unequip(int idx);
 	void use(int idx, ICharacter& target);
-	AMateria*	getMateria(int idx) const;
-	int						getNOfMateria() const;
+
+	std::string const &	getName() const;
 private:
 	std::string _name;
 	AMateria*	_inventory[4];
 	int			_idx;
+	Node		_unEquippedMateria;
 };
 
 #endif
