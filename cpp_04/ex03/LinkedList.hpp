@@ -28,6 +28,4 @@ public :
 	const LinkedList & operator=(const LinkedList & rhs);
 
 	Node *	addNode(AMateria * materia);
-
-	AMateria*	materia;
 };
