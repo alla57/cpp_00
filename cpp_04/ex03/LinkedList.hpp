@@ -1,5 +1,5 @@
-#ifndef NODE_HPP
-# define NODE_HPP
+#ifndef LINKEDLIST_HPP
+# define LINKEDLIST_HPP
 
 # include "AMateria.hpp"
 
@@ -10,9 +10,7 @@ public :
 	Node(Node const & src);
 	~Node();
 
-	const Node & operator=(const Node & rhs);
-
-	Node *	addNode(AMateria * materia);
+	Node & operator=(Node & rhs);
 
 	AMateria*	materia;
 	Node*		next;
@@ -27,5 +25,9 @@ public :
 
 	const LinkedList & operator=(const LinkedList & rhs);
 
-	Node *	addNode(AMateria * materia);
+	void	addNode(AMateria * materia);
+
+	Node*	head;
 };
+
+#endif
