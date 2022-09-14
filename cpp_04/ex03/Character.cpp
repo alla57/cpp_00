@@ -5,13 +5,11 @@
 
 Character::Character() : ICharacter(), _name("default"), _idx(0){
 	std::cout << "Character default constructor called" << std::endl;
-	unEquippedMateria->next = NULL;
 	return ;
 }
 
 Character::Character(const std::string & name) : ICharacter(), _name(name), _idx(0){
 	std::cout << "Character " << name << " constructor called" << std::endl;
-	unEquippedMateria->next = NULL;
 	return ;
 }
 
@@ -64,6 +62,7 @@ void				Character::unequip(int idx)
 {
 	if (idx < 0 || idx > 3 || idx >= _idx)
 		return ;
+	_unEquippedMaterias.addNode(_inventory[idx]);
 	while (idx < _idx)
 	{
 		_inventory[idx++] = NULL;

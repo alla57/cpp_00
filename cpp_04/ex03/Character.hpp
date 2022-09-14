@@ -4,6 +4,7 @@
 # include <string>
 # include "ICharacter.hpp"
 # include "AMateria.hpp"
+# include "LinkedList.hpp"
 
 class Character : public ICharacter
 {
@@ -24,7 +25,7 @@ private:
 	std::string _name;
 	AMateria*	_inventory[4];
 	int			_idx;
-	Node		_unEquippedMateria;
+	LinkedList	_unEquippedMaterias;
 };
 
 #endif

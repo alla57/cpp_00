@@ -12,6 +12,7 @@ Node::Node(Node const & src){
 }
 
 Node::~Node(){
+	delete materia;
 }
 
 Node & Node::operator=(Node & rhs){
