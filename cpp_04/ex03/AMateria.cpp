@@ -4,23 +4,23 @@
 //					CONSTRUCTORS
 
 AMateria::AMateria() : type("default"){
-	std::cout << "AMateria " << type << " constructor called" << std::endl;
+	// std::cout << "AMateria " << type << " constructor called" << std::endl;
 	return ;
 }
 
 AMateria::AMateria(std::string const & type) : type(type){
-	std::cout << "AMateria " << type << " constructor called" << std::endl;
+	// std::cout << "AMateria " << type << " constructor called" << std::endl;
 	return ;
 }
 
 AMateria::AMateria(const AMateria & src){
-	std::cout << "AMateria copy constructor called" << std::endl;
+	// std::cout << "AMateria copy constructor called" << std::endl;
 	*this = src;
 	return ;
 }
 
 AMateria::~AMateria(){
-	std::cout << "AMateria destructor called" << std::endl;
+	// std::cout << "AMateria destructor called" << std::endl;
 	return ;
 }
 

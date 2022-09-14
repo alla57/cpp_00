@@ -4,18 +4,18 @@
 //			CONSTRUCTORS
 
 MateriaSource::MateriaSource() : IMateriaSource(){
-	std::cout << "MateriaSource default constructor called" << std::endl;
+	// std::cout << "MateriaSource default constructor called" << std::endl;
 	return;
 }
 
 MateriaSource::MateriaSource(const MateriaSource & src) : IMateriaSource(){
-	std::cout << "MateriaSource default constructor called" << std::endl;
+	// std::cout << "MateriaSource default constructor called" << std::endl;
 	*this = src;
 	return;
 }
 
 MateriaSource::~MateriaSource(){
-	std::cout << "MateriaSource destructor called" << std::endl;
+	// std::cout << "MateriaSource destructor called" << std::endl;
 	return ;
 }
 

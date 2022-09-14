@@ -31,12 +31,30 @@ int main()
 		delete bob;
 		delete me;
 		delete src;
-		return 0;
 	}
 	{
-		AMateria* m1 = new Ice;
-		AMateria* m2 = new Cure;
+		AMateria* i1 = new Ice;
+		AMateria* i2 = new Ice;
+		AMateria* i3 = new Ice;
 
-		*m1 = *m2;
+		AMateria* c1 = new Cure;
+		AMateria* c2 = new Cure;
+		AMateria* c3 = new Cure;
+
+		ICharacter* me = new Character("me");
+		ICharacter* me2 = new Character("me2");
+		ICharacter* me3 = new Character("me3");
+
+		me->equip(i1);
+		me->equip(i2);
+		me->equip(i3);
+
+		me2->equip(c1);
+		me2->equip(c2);
+		me2->equip(c3);
+
+		*me3 = *me;
+		std::cout << "me3 name: " << me3->getName() << std::endl;
+		return(0);
 	}
 }

@@ -5,11 +5,13 @@
 # include <string>
 
 class AMateria;
+class Character;
 
 class ICharacter
 {
 public:
 	virtual ~ICharacter() {}
+	virtual ICharacter const & operator=(const ICharacter & rhs) = 0;
 	virtual std::string const & getName() const = 0;
 	virtual void equip(AMateria* m) = 0;
 	virtual void unequip(int idx) = 0;

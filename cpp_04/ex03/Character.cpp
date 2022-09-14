@@ -4,23 +4,23 @@
 //					CONSTRUCTORS
 
 Character::Character() : ICharacter(), _name("default"), _idx(0){
-	std::cout << "Character default constructor called" << std::endl;
+	// std::cout << "Character default constructor called" << std::endl;
 	return ;
 }
 
 Character::Character(const std::string & name) : ICharacter(), _name(name), _idx(0){
-	std::cout << "Character " << name << " constructor called" << std::endl;
+	// std::cout << "Character " << name << " constructor called" << std::endl;
 	return ;
 }
 
 Character::Character(const Character & rhs) : ICharacter(){
-	std::cout << "Character copy constructor called" << std::endl;
+	// std::cout << "Character copy constructor called" << std::endl;
 	*this = rhs;
 	return ;
 }
 
 Character::~Character(){
-	std::cout << "Character " << _name << " destructor called" << std::endl;
+	// std::cout << "Character " << _name << " destructor called" << std::endl;
 	for (int i = 0; i < _idx; i++)
 		delete _inventory[i];
 	return ;
@@ -28,21 +28,25 @@ Character::~Character(){
 
 //					ASSIGNEMENT OPERATOR
 
+ICharacter const & Character::operator=(const ICharacter & rhs){
+	this->operator=(dynamic_cast<const Character &>(rhs));
+	return (*this);
+}
+
 Character const & Character::operator=(const Character & rhs){
+	int NOfMateria;
+	std::cout << "Character " << _name << " assignement operator called" << std::endl;
 	if (this == &rhs)
 		return (*this);
+
+	NOfMateria = _idx;
+	for (int i = 0; i < NOfMateria; i++)
+		delete	_inventory[i];
 	_idx = rhs._idx;
-	_name = rhs.getName();
-	int i = 0;
-	int NOfMateria = _idx;
-	AMateria *tmp;
-	while (i < NOfMateria)
-	{
-		tmp = _inventory[i];
+	NOfMateria = _idx;
+	for (int i = 0; i < NOfMateria ; i++)
 		_inventory[i] = rhs._inventory[i]->clone();
-		delete tmp;
-		++i;
-	}
+	_name = rhs.getName();
 	return (*this);
 }
 
@@ -57,7 +61,7 @@ Character const & Character::operator=(const Character & rhs){
 // 	while (i < NOfMateria)
 // 	{
 // 		tmp = _inventory[i];
-// 		_inventory[i] = _inventory->clone();
+// 		_inventory[i] = rhs._inventory[i]->clone();
 // 		delete tmp;
 // 		++i;
 // 	}

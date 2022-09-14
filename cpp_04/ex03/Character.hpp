@@ -14,6 +14,7 @@ public:
 	Character(const Character & src);
 	~Character();
 
+	ICharacter const & operator=(const ICharacter & rhs);
 	Character const & operator=(const Character & rhs);
 
 	void equip(AMateria* m);

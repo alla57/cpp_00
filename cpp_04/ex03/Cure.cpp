@@ -4,18 +4,18 @@
 //			CONSTRUCTORS
 
 Cure::Cure() : AMateria("cure"){
-	std::cout << "Cure default constructor called" << std::endl;
+	// std::cout << "Cure default constructor called" << std::endl;
 	return ;
 }
 
 Cure::Cure(Cure const & src) : AMateria("cure"){
-	std::cout << "Cure copy constructor called" << std::endl;
+	// std::cout << "Cure copy constructor called" << std::endl;
 	*this = src;
 	return ;
 }
 
 Cure::~Cure(){
-	std::cout << "Cure destructor called" << std::endl;
+	// std::cout << "Cure destructor called" << std::endl;
 	return ;
 }
 

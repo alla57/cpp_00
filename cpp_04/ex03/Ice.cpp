@@ -4,18 +4,18 @@
 //			CONSTRUCTORS
 
 Ice::Ice() : AMateria("ice"){
-	std::cout << "Ice default constructor called" << std::endl;
+	// std::cout << "Ice default constructor called" << std::endl;
 	return ;
 }
 
 Ice::Ice(Ice const & src) : AMateria("ice"){
-	std::cout << "Ice copy constructor called" << std::endl;
+	// std::cout << "Ice copy constructor called" << std::endl;
 	*this = src;
 	return ;
 }
 
 Ice::~Ice(){
-	std::cout << "Ice destructor called" << std::endl;
+	// std::cout << "Ice destructor called" << std::endl;
 	return ;
 }
 
