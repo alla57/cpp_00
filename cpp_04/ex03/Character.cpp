@@ -39,12 +39,30 @@ Character const & Character::operator=(const Character & rhs){
 	while (i < NOfMateria)
 	{
 		tmp = _inventory[i];
-		_inventory[i] = _inventory->clone();
+		_inventory[i] = rhs._inventory[i]->clone();
 		delete tmp;
 		++i;
 	}
 	return (*this);
 }
+
+// Character const & Character::operator=(const Character & rhs){
+// 	if (this == &rhs)
+// 		return (*this);
+// 	_idx = rhs._idx;
+// 	_name = rhs.getName();
+// 	int i = 0;
+// 	int NOfMateria = _idx;
+// 	AMateria *tmp;
+// 	while (i < NOfMateria)
+// 	{
+// 		tmp = _inventory[i];
+// 		_inventory[i] = _inventory->clone();
+// 		delete tmp;
+// 		++i;
+// 	}
+// 	return (*this);
+// }
 
 //					METHODS
 

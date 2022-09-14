@@ -10,7 +10,7 @@ public :
 	Node(Node const & src);
 	~Node();
 
-	Node & operator=(Node & rhs);
+	const Node & operator=(const Node & rhs);
 
 	AMateria*	materia;
 	Node*		next;

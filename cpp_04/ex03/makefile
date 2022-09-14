@@ -12,6 +12,7 @@ SRC_PATH =	main.cpp				\
 			Ice.cpp					\
 			Cure.cpp				\
 			MateriaSource.cpp		\
+			LinkedList.cpp			\
 
 SRC = $(SRC_PATH)
 

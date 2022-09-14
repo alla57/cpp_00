@@ -15,9 +15,9 @@ Node::~Node(){
 	delete materia;
 }
 
-Node & Node::operator=(Node & rhs){
-	materia = src.materia;
-	next = src.next;
+const Node & Node::operator=(const Node & rhs){
+	materia = rhs.materia;
+	next = rhs.next;
 	return (*this);
 }
 
@@ -40,12 +40,14 @@ LinkedList::~LinkedList(){
 	delete head;
 }
 
-LinkedList & LinkedList::operator=(LinkedList & rhs){
+const LinkedList & LinkedList::operator=(const LinkedList & rhs){
+	(void)rhs;
 	return (*this);
 }
 
 void	LinkedList::addNode(AMateria* materiaToAdd){
 	Node* node = new Node;
-	node.materia = materiaToAdd;
-	node.next = 
+	node->materia = materiaToAdd;
+	node->next = head;
+	head = node;
 }
