@@ -1,4 +1,4 @@
-CC = g++
+CXX = c++
 
 RM = rm -rf
 
@@ -27,7 +27,7 @@ fclean : clean
 	$(RM) $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(SRC)
+	$(CXX) $(CFLAGS) -o $(NAME) $(SRC)
 
 re : fclean all
 

@@ -1,4 +1,4 @@
-CC = g++
+CXX = c++
 
 RM = rm -rf
 
@@ -12,7 +12,7 @@ SRC_PATH =	main.cpp				\
 			Cat.class.cpp			\
 			WrongAnimal.class.cpp	\
 			WrongCat.class.cpp		\
-			Brain.class.cpp
+			Brain.class.cpp			\
 
 SRC = $(SRC_PATH)
 
@@ -27,7 +27,7 @@ fclean : clean
 	$(RM) $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(SRC)
+	$(CXX) $(CFLAGS) -o $(NAME) $(SRC)
 
 re : fclean all
 

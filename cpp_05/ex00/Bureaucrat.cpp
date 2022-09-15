@@ -4,23 +4,23 @@
 // 			CONSTRUCTORS AND DESTRUCTORS
 
 Bureaucrat::Bureaucrat() : _name("default"), _grade(150){
-	std::cout << "Bureaucrat default constructor" << std::endl;
+	std::cout << "Bureaucrat " << _name << " constructed" << std::endl;
 	return ;
 }
 
 Bureaucrat::Bureaucrat(const std::string & name, const int & grade) : _name(name){
-	std::cout << "Bureaucrat " << _name << " constructor" << std::endl;
+	std::cout << "Bureaucrat " << _name << " created with grade " << _grade << std::endl;
 	return ;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat & src) : _name(src.getName()){
-	std::cout << "Bureaucrat copy constructor" << std::endl;
+	std::cout << "Bureaucrat "<< _name << " copy constructed" << std::endl;
 	*this = src;
 	return ;
 }
 
 Bureaucrat::~Bureaucrat(){
-	std::cout << "Bureaucrat destructor" << std::endl;
+	std::cout << "Bureaucrat " << _name << " destructed" << std::endl;
 	return ;
 }
 
