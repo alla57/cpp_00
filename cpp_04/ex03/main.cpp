@@ -4,15 +4,6 @@
 #include "Cure.hpp"
 #include <iostream>
 
-// int main()
-// {
-// 	// Ice ice;
-// 	Character alla("alla");
-	
-// 	std::cout << alla.getName() << std::endl;
-// 	return (0);
-// }
-
 int main()
 {
 	{
@@ -46,15 +37,28 @@ int main()
 		ICharacter* me3 = new Character("me3");
 
 		me->equip(i1);
-		me->equip(i2);
+		me->equip(c2);
 		me->equip(i3);
 
 		me2->equip(c1);
-		me2->equip(c2);
+		me2->equip(i2);
 		me2->equip(c3);
 
 		*me3 = *me;
+		delete me;
 		std::cout << "me3 name: " << me3->getName() << std::endl;
+		me3->use(0, *me2);
+		me3->use(1, *me2);
+		me3->use(2, *me2);
+		me3->use(3, *me2);
+		me3->unequip(2);
+		me3->unequip(1);
+		me3->unequip(0);
+		me3->use(0, *me2);
+		me3->use(1, *me2);
+		me3->use(2, *me2);
+		delete me2;
+		delete me3;
 		return(0);
 	}
 }

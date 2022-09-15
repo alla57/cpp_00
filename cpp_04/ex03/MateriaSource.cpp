@@ -4,18 +4,18 @@
 //			CONSTRUCTORS
 
 MateriaSource::MateriaSource() : IMateriaSource(){
-	// std::cout << "MateriaSource default constructor called" << std::endl;
+	_idx = 0;
 	return;
 }
 
 MateriaSource::MateriaSource(const MateriaSource & src) : IMateriaSource(){
-	// std::cout << "MateriaSource default constructor called" << std::endl;
 	*this = src;
 	return;
 }
 
 MateriaSource::~MateriaSource(){
-	// std::cout << "MateriaSource destructor called" << std::endl;
+	for (int i = 0; i < _idx; i++)
+		delete _inventory[i];
 	return ;
 }
 
@@ -36,7 +36,7 @@ void		MateriaSource::learnMateria(AMateria* m)
 {
 	if (_idx > 3)
 		return ;
-	_inventory[_idx] = m->clone();
+	_inventory[_idx] = m;
 	_idx++;
 }
 
