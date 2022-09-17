@@ -14,6 +14,8 @@ public :
 
 	void	incrementGrade();
 	void	decrementGrade();
+	void	GradeTooHighException();
+	void	GradeTooLowException();
 
 	const std::string &	getName() const;
 	const int &			getGrade() const;

@@ -9,6 +9,10 @@ Bureaucrat::Bureaucrat() : _name("default"), _grade(150){
 }
 
 Bureaucrat::Bureaucrat(const std::string & name, const int & grade) : _name(name){
+	try {
+		if (grade < 1)
+			throw Bureaucrat::GradeTooHighException();
+	}
 	std::cout << "Bureaucrat " << _name << " created with grade " << _grade << std::endl;
 	return ;
 }
@@ -46,6 +50,15 @@ const int &			getGrade() const{
 // 			METHODS
 
 void	Bureaucrat::incrementGrade(){
+	try{
+		if (_grade == 1)
+			throw MyException();
+		_grade--;
+	}
+	catch (MyException & e){
+		std::cout << e.what() << std::endl;
+	}
+	
 	if (_grade > 1)
 		--_grade;
 }
@@ -53,4 +66,12 @@ void	Bureaucrat::incrementGrade(){
 void	Bureaucrat::decrementGrade(){
 	if (_grade < 150)
 		++_grade;
+}
+
+void	Bureaucrat::GradeTooHighException(){
+	std::cout << "Error : grade is too high" << std::endl;
+}
+
+void	Bureaucrat::GradeTooLowException(){
+	std::cout << "Error : grade is too low" << std::endl;
 }
