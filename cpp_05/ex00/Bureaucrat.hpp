@@ -7,15 +7,16 @@ class Bureaucrat
 {
 public :
 	Bureaucrat();
+	Bureaucrat(const std::string & name, const int & grade);
 	Bureaucrat(const Bureaucrat & src);
 	~Bureaucrat();
 
-	const Bureaucrat & operator=(const Brueaucrat & rhs);
+	const Bureaucrat & operator=(const Bureaucrat & rhs);
 
 	void	incrementGrade();
 	void	decrementGrade();
-	void	GradeTooHighException();
-	void	GradeTooLowException();
+	int		GradeTooHighException();
+	int		GradeTooLowException();
 
 	const std::string &	getName() const;
 	const int &			getGrade() const;
@@ -24,3 +25,5 @@ private :
 	int					_grade;
 };
 #endif
+
+std::ostream &		operator<<(std::ostream & output, const Bureaucrat & bureaucrat);

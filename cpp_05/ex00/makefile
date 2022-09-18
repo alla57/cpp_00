@@ -4,7 +4,7 @@ RM = rm -rf
 
 CFLAGS = -Wall -Wextra -Werror -I./
 
-NAME = Animal
+NAME = Bureaucrat
 
 SRC_PATH =	main.cpp			\
 			Bureaucrat.cpp		\
