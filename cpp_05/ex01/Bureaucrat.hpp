@@ -24,6 +24,6 @@ private :
 	const std::string	_name;
 	int					_grade;
 };
-#endif
 
 std::ostream &		operator<<(std::ostream & output, const Bureaucrat & bureaucrat);
+#endif

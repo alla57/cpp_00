@@ -83,7 +83,7 @@ int	Bureaucrat::GradeTooLowException(){
 	return 0;
 }
 
-//			ASSIGNMENT OPERATOR OVERLOADING
+//			STREAM OVERLOADING
 
 std::ostream & operator<<(std::ostream & output, const Bureaucrat & bureaucrat){
 	output << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";
