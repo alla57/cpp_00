@@ -16,7 +16,7 @@ Form::Form(const std::string & name, const int & gradeToSign, const int & gradeT
 	std::cout << "Form " << name << " created with grade to sign " << _gradeToSign << " and with grade execute " << _gradeToExecute << "." << std::endl;
 }
 
-Form::Form(Form const & src) : _name(src._name), _isSigned(0), _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute){
+Form::Form(Form const & src) : _name(src._name), _isSigned(src._isSigned), _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute){
 	*this = src;
 }
 

@@ -6,9 +6,10 @@ CFLAGS = -Wall -Wextra -Werror -I./
 
 NAME = Form
 
-SRC_PATH =	main.cpp			\
-			Bureaucrat.cpp		\
-			Form.cpp			\
+SRC_PATH =	main.cpp					\
+			Bureaucrat.cpp				\
+			AForm.cpp					\
+			ShrubberyCreationForm.cpp	\
 
 SRC = $(SRC_PATH)
 

@@ -2,9 +2,9 @@
 # define BUREAUCRAT_HPP
 
 # include <string>
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -20,7 +20,7 @@ public :
 	void	decrementGrade();
 	int		GradeTooHighException();
 	int		GradeTooLowException();
-	void	signForm(Form & form);
+	void	signForm(AForm & form);
 
 	const std::string &	getName() const;
 	const int &			getGrade() const;
