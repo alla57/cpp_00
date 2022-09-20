@@ -4,10 +4,11 @@ RM = rm -rf
 
 CFLAGS = -Wall -Wextra -Werror -I./
 
-NAME = Bureaucrat
+NAME = Form
 
 SRC_PATH =	main.cpp			\
 			Bureaucrat.cpp		\
+			Form.cpp			\
 
 SRC = $(SRC_PATH)
 

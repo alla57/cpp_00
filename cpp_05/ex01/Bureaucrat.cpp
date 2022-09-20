@@ -83,6 +83,18 @@ int	Bureaucrat::GradeTooLowException(){
 	return 0;
 }
 
+void	Bureaucrat::signForm(Form & form){
+	if (form.getGradeToSign() < _grade)
+		std::cout << _name << " couldn’t sign " << form.getName() << " because bureaucrat's grade is too low" << std::endl;
+	else if (form.getIsSigned() == 1)
+		std::cout << _name << " couldn’t sign " << form.getName() << " because the form is already signed" << std::endl;
+	else
+	{
+		form.beSigned(*this);
+		std::cout << _name << " signed " << form.getName() << std::endl;
+	}
+}
+
 //			STREAM OVERLOADING
 
 std::ostream & operator<<(std::ostream & output, const Bureaucrat & bureaucrat){

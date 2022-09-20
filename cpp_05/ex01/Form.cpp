@@ -5,18 +5,15 @@
 //				CONSTRUCTORS AND DESTRUCTORS
 
 Form::Form() : _name("default"), _isSigned(0), _gradeToSign(150), _gradeToExecute(150){
-	std::cout << "Form " << name << " created with grade to sign " << _gradeToSign << " and with grade execute " << _gradeToExecute << "." << std::endl;
+	std::cout << "Form " << _name << " created with grade to sign " << _gradeToSign << " and with grade execute " << _gradeToExecute << "." << std::endl;
 }
 
-Form::Form(const std::string & name, const int & gradeToSign, const int & gradeToExecute) try : _name(name), _isSigned(0), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute){
+Form::Form(const std::string & name, const int & gradeToSign, const int & gradeToExecute) : _name(name), _isSigned(0), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute){
 	if (_gradeToSign < 1)
-		throw Bureaucrat::GradeTooHighException();
+		throw Form::GradeTooHighException;
 	if (_gradeToSign > 150)
-		throw Bureaucrat::GradeTooLowException();
+		throw Form::GradeTooLowException;
 	std::cout << "Form " << name << " created with grade to sign " << _gradeToSign << " and with grade execute " << _gradeToExecute << "." << std::endl;
-}
-catch (int){
-	std::cout << "Form initialization aborted" << std::endl;
 }
 
 Form::Form(Form const & src) : _name(src._name), _isSigned(0), _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute){
@@ -37,28 +34,31 @@ const Form & Form::operator=(const Form & rhs){
 void	Form::beSigned(const Bureaucrat & bureaucrat){
 	try {
 		if (bureaucrat.getGrade() > _gradeToSign)
-			throw Bureaucrat::GradeTooLowException();
+			throw Form::GradeTooLowException;
+		else if (_isSigned == 1)
+			return ;
 		_isSigned = 1;
 	}
-	catch (int){
+	catch (std::exception &e){
+		std::cout << e.what() << std::endl;
 	}
 }
 
 //			GETTERS
 
-void	Form::getName() const{
+const std::string	Form::getName() const{
 	return (_name);
 }
 
-void	Form::getIsSigned() const{
+bool	Form::getIsSigned() const{
 	return (_isSigned);
 }
 
-void	Form::getGradeToSign() const{
+int	Form::getGradeToSign() const{
 	return (_gradeToSign);
 }
 
-void	Form::getGradeToExecute() const{
+int	Form::getGradeToExecute() const{
 	return (_gradeToExecute);
 }
 
