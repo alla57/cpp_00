@@ -15,6 +15,10 @@ int main()
 		std::cout << jules << std::endl;
 		jean = jules;
 		std::cout << jean << std::endl;
+		jean.incrementGrade();
+		std::cout << jean << std::endl;
+		jean.incrementGrade();
+		std::cout << jean << std::endl;
 	}
 	catch (...){
 	}
