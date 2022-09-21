@@ -2,22 +2,10 @@
 # define AFORM_HPP
 
 # include <string>
-# include <exception>
-# include "Bureaucrat.hpp"
 # include <iostream>
+# include "MyException.hpp"
 
 class Bureaucrat;
-
-class MyException : public std::exception{
-public :
-	MyException(const char *errorMsg = "Unkown error") : msg(errorMsg){
-	}
-	const char*	what() const noexcept{
-		return (msg);
-	}
-private :
-	const char* msg;
-};
 
 class AForm{
 public :
@@ -29,7 +17,7 @@ public :
 	const AForm & operator=(const AForm & rhs);
 
 	void	beSigned(const Bureaucrat & bureaucrat);
-	int		execute(Bureaucrat const & executor) const;
+	void	execute(Bureaucrat const & executor) const;
 	virtual void	executeTheForm() const = 0;
 
 	const std::string	getName() const;
@@ -43,6 +31,7 @@ public :
 	MyException	GradeTooHighException{"Error : grade is too high"};
 	MyException	GradeTooLowException{"Error : grade is too low"};
 	MyException	FormIsNotSignedException{"Error : form is not signed yet"};
+	MyException FailedToExecuteException{"Form execution failed"};
 private:
 	const std::string	_name;
 	bool				_isSigned;

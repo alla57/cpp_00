@@ -2,7 +2,7 @@
 # define BUREAUCRAT_HPP
 
 # include <string>
-# include "AForm.hpp"
+# include "MyException.hpp"
 
 class AForm;
 

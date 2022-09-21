@@ -1,5 +1,7 @@
 #include "Bureaucrat.hpp"
+#include <exception>
 #include <iostream>
+#include "AForm.hpp"
 
 // 			CONSTRUCTORS AND DESTRUCTOR
 
@@ -96,8 +98,15 @@ void	Bureaucrat::signForm(AForm & form){
 }
 
 void	Bureaucrat::executeForm(AForm const & form){
-	if (form.execute(*this) == 1)
+	try{
+		form.execute(*this);
 		std::cout << _name << " executed " << form.getName() << std::endl;
+	}
+	catch (std::exception & e){
+		std::cout << e.what() << std::endl;
+	}
+	// if (form.execute(*this) == 1)
+	// 	std::cout << _name << " executed " << form.getName() << std::endl;
 }
 
 //			STREAM OVERLOADING

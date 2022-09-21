@@ -11,6 +11,7 @@ SRC_PATH =	main.cpp					\
 			AForm.cpp					\
 			ShrubberyCreationForm.cpp	\
 			RobotomyRequestForm.cpp		\
+			PresidentialPardonForm.cpp	\
 
 SRC = $(SRC_PATH)
 

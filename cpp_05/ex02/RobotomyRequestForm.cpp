@@ -1,4 +1,5 @@
 #include "RobotomyRequestForm.hpp"
+#include "Bureaucrat.hpp"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -36,5 +37,8 @@ void	RobotomyRequestForm::executeTheForm() const{
 	if (rand() % 2)
 		std::cout << this->getTarget() << " has been robotomized successfully" << std::endl;
 	else
+	{
 		std::cout << "robotomy failed" << std::endl;
+		throw FailedToExecuteException;
+	}
 }
