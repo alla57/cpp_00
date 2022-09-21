@@ -4,7 +4,7 @@ RM = rm -rf
 
 CFLAGS = -Wall -Wextra -Werror -I./
 
-NAME = Form
+NAME = Intern
 
 SRC_PATH =	main.cpp					\
 			Bureaucrat.cpp				\
@@ -12,6 +12,7 @@ SRC_PATH =	main.cpp					\
 			ShrubberyCreationForm.cpp	\
 			RobotomyRequestForm.cpp		\
 			PresidentialPardonForm.cpp	\
+			Intern.cpp					\
 
 SRC = $(SRC_PATH)
 
