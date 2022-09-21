@@ -23,6 +23,7 @@ public :
 	Form();
 	Form(const std::string & name, const int & gradeToSign, const int & gradeToExecute);
 	Form(Form const & src);
+	~Form();
 
 	const Form & operator=(const Form & rhs);
 

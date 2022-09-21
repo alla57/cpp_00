@@ -20,6 +20,9 @@ Form::Form(Form const & src) : _name(src._name), _isSigned(src._isSigned), _grad
 	*this = src;
 }
 
+Form::~Form(){
+}
+
 //			ASSIGNMENT OPERATOR OVERLOADING
 
 const Form & Form::operator=(const Form & rhs){
