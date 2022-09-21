@@ -95,6 +95,11 @@ void	Bureaucrat::signForm(AForm & form){
 	}
 }
 
+void	Bureaucrat::executeForm(AForm const & form){
+	if (form.execute(*this) == 1)
+		std::cout << _name << " executed " << form.getName() << std::endl;
+}
+
 //			STREAM OVERLOADING
 
 std::ostream & operator<<(std::ostream & output, const Bureaucrat & bureaucrat){

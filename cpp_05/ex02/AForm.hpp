@@ -4,6 +4,7 @@
 # include <string>
 # include <exception>
 # include "Bureaucrat.hpp"
+# include <iostream>
 
 class Bureaucrat;
 
@@ -23,11 +24,12 @@ public :
 	AForm();
 	AForm(const std::string & name, const int & gradeToSign, const int & gradeToExecute, const std::string & target);
 	AForm(AForm const & src);
+	virtual ~AForm();
 
 	const AForm & operator=(const AForm & rhs);
 
 	void	beSigned(const Bureaucrat & bureaucrat);
-	void	execute(Bureaucrat const & executor) const;
+	int		execute(Bureaucrat const & executor) const;
 	virtual void	executeTheForm() const = 0;
 
 	const std::string	getName() const;

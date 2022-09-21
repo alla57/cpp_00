@@ -5,8 +5,18 @@
 
 int main()
 {
-	AForm *form1 = new ShrubberyCreationForm;
+	AForm		*form1 = new ShrubberyCreationForm;
 	std::cout << form1->getName() << std::endl;
+	std::cout << *form1 << std::endl;
+
+	Bureaucrat	jules("Jules" , 138);
+	std::cout << jules << std::endl;
+	jules.signForm(*form1);
+	jules.executeForm(*form1);
+	jules.incrementGrade();
+	jules.executeForm(*form1);
+	delete form1;
+	// form1->execute(jules);
 	// try {
 	// 	Form form1("form_one", 151, 25);
 	// }

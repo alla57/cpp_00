@@ -21,6 +21,7 @@ public :
 	int		GradeTooHighException();
 	int		GradeTooLowException();
 	void	signForm(AForm & form);
+	void	executeForm(AForm const & form);
 
 	const std::string &	getName() const;
 	const int &			getGrade() const;

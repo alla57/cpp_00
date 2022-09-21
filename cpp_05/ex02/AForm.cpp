@@ -14,6 +14,9 @@ AForm::AForm(AForm const & src) : _name(src._name), _isSigned(src._isSigned), _g
 	*this = src;
 }
 
+AForm::~AForm(){
+}
+
 //			ASSIGNMENT OPERATOR OVERLOADING
 
 const AForm & AForm::operator=(const AForm & rhs){
@@ -39,17 +42,19 @@ void	AForm::beSigned(const Bureaucrat & bureaucrat){
 	}
 }
 
-void	AForm::execute(Bureaucrat const & executor) const{
+int		AForm::execute(Bureaucrat const & executor) const{
 	try {
 		if (executor.getGrade() > this->getGradeToExecute())
 			throw AForm::GradeTooLowException;
 		else if (this->getIsSigned() == 0)
 			throw AForm::FormIsNotSignedException;
 		executeTheForm();
+		return (1);
 	}
 	catch (std::exception & e){
 		std::cout << e.what() << std::endl;
 	}
+	return (0);
 }
 
 //			GETTERS

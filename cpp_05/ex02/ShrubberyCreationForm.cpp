@@ -15,6 +15,9 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src) 
 	*this = src;
 }
 
+ShrubberyCreationForm::~ShrubberyCreationForm(){
+}
+
 //			ASSIGNMENT OPERATOR OVERLOADING
 
 const ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreationForm & rhs){
@@ -27,21 +30,8 @@ const ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCr
 
 //			METHODS
 
-// void	ShrubberyCreationForm::beSigned(const Bureaucrat & bureaucrat){
-// 	try {
-// 		if (bureaucrat.getGrade() > _gradeToSign)
-// 			throw AForm::GradeTooLowException;
-// 		else if (_isSigned == 1)
-// 			return ;
-// 		_isSigned = 1;
-// 	}
-// 	catch (std::exception &e){
-// 		std::cout << e.what() << std::endl;
-// 	}
-// }
-
 void	ShrubberyCreationForm::executeTheForm() const{
-	std::ofstream	targetOutfile(this->getTarget());
+	std::ofstream	targetOutfile(this->getTarget(), std::ofstream::trunc);
 	targetOutfile << std::endl <<
 "       _-_" << std::endl <<
 "    /~~   ~~\\" << std::endl <<
