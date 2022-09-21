@@ -13,7 +13,6 @@ public :
 
 	const ShrubberyCreationForm & operator=(const ShrubberyCreationForm & rhs);
 
-	void	beSigned(const Bureaucrat & bureaucrat);
 	void	executeTheForm() const;
 };
 

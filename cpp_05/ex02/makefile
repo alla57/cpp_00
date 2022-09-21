@@ -10,6 +10,7 @@ SRC_PATH =	main.cpp					\
 			Bureaucrat.cpp				\
 			AForm.cpp					\
 			ShrubberyCreationForm.cpp	\
+			RobotomyRequestForm.cpp		\
 
 SRC = $(SRC_PATH)
 
