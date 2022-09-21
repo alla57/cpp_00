@@ -105,8 +105,6 @@ void	Bureaucrat::executeForm(AForm const & form){
 	catch (std::exception & e){
 		std::cout << e.what() << std::endl;
 	}
-	// if (form.execute(*this) == 1)
-	// 	std::cout << _name << " executed " << form.getName() << std::endl;
 }
 
 //			STREAM OVERLOADING

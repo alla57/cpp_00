@@ -5,7 +5,6 @@
 //				CONSTRUCTORS AND DESTRUCTORS
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137, "jardin"){
-	// std::cout << "Form " << _name << " created with grade to sign " << _gradeToSign << " and with grade execute " << _gradeToExecute << "." << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string & target) : AForm("ShrubberyCreationForm", 145, 137, target){

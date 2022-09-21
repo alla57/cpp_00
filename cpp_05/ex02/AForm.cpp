@@ -51,21 +51,6 @@ void	AForm::execute(Bureaucrat const & executor) const{
 		executeTheForm();
 }
 
-// void	AForm::execute(Bureaucrat const & executor) const{
-// 	try {
-// 		if (executor.getGrade() > this->getGradeToExecute())
-// 			throw AForm::GradeTooLowException;
-// 		else if (this->getIsSigned() == 0)
-// 			throw AForm::FormIsNotSignedException;
-// 		executeTheForm();
-// 		return (1);
-// 	}
-// 	catch (std::exception & e){
-// 		std::cout << e.what() << std::endl;
-// 	}
-// 	return (0);
-// }
-
 //			GETTERS
 
 const std::string	AForm::getName() const{
