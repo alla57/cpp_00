@@ -48,6 +48,13 @@ bool	isFormatNumberValid(const char* str)
 	return (true);
 }
 
+bool	isSpecialValue(const char *srcString){
+	std::string str(srcString);
+	if (str == "-inff" || str == "+inff" || str == "nanf" || str == "-inf" || str == "+inf" || str == "nan")
+		return (true);
+	return (false);
+}
+
 bool	argumentIsValid(int argc, const char **argv)
 {
 	if (argc != 2)
@@ -59,6 +66,8 @@ bool	argumentIsValid(int argc, const char **argv)
 	if (!isFormatNumberValid(srcString))
 	{
 		if (ft_strlen(srcString) == 1)
+			continue;
+		else if (isSpecialValue(srcString))
 			continue;
 		else
 		{
