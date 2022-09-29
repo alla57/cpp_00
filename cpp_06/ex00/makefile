@@ -2,9 +2,9 @@ CXX = c++
 
 RM = rm -rf
 
-CFLAGS = -Wall -Wextra -Werror -I./ -std=c++98
+CFLAGS = -Wall -Wextra -Werror -I./
 
-NAME = Intern
+NAME = ScalarConversion
 
 SRC_PATH =	main.cpp				\
 			ScalarConversion.cpp	\
