@@ -2,7 +2,7 @@ CXX = c++
 
 RM = rm -rf
 
-CFLAGS = -Wall -Wextra -Werror -I./
+CFLAGS = -Wall -Wextra -Werror -I./ -std=c++98
 
 NAME = ScalarConversion
 

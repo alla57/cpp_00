@@ -65,11 +65,7 @@ bool	argumentIsValid(int argc, const char **argv)
 	const char *srcString = argv[1];
 	if (!isFormatNumberValid(srcString))
 	{
-		if (ft_strlen(srcString) == 1)
-			continue;
-		else if (isSpecialValue(srcString))
-			continue;
-		else
+		if (ft_strlen(srcString) != 1 && !isSpecialValue(srcString))
 		{
 			std::cerr << "Invalid format !" << std::endl;
 			return (0);
@@ -80,14 +76,25 @@ bool	argumentIsValid(int argc, const char **argv)
 
 int main(int argc, char *argv[])
 {
-	void (*TypeConvertersFunc[])(std::string const &) = {converStringtToInt, convertStringToDouble, convertStringToFloat, convertStringToChar};
-
-	if (!argumentIsValid(argc, argv))
+	if (!argumentIsValid(argc, const_cast<const char**>(argv)))
 		return (1);
 	const char *srcString = argv[1];
 	int type = detectType(srcString);
-	if (type == 4)
-		return (0);
-	(*TypeConvertersFunc[type])(srcString);
+	double value = 0.0;
+	if (type == 0)
+		value = static_cast<double>(convertStringToInt(srcString));
+	else if (type == 1)
+		value = static_cast<double>(convertStringToDouble(srcString));
+	else if (type == 2)
+		value = static_cast<double>(convertStringToFloat(srcString));
+	else if (type == 3)
+		value = static_cast<double>(convertStringToChar(srcString));
+	else if (type == 4)
+		return (1);
+	int precision = getPrecision(srcString, type);
+	PrintCharResult(value);
+	PrintIntResult(srcString, value);
+	PrintFloatResult(value, precision);
+	PrintDoubleResult(value, precision);
 	return (0);
 }
