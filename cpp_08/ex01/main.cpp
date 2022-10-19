@@ -1,40 +1,41 @@
-#include "easyfind.hpp"
+#include "Span.hpp"
 #include <iostream>
-#include <algorithm>
-#include <vector>
-#include <deque>
-#include <list>
 
 int main( void )
 {
-	int nbToFind = 25;
-	std::vector<int> vec;
-	std::deque<int> deq;
-	std::list<int> lst;
-	vec.push_back(25);
-	vec.push_back(26);
-	vec.push_back(27);
-	vec.push_back(28);
-	vec.push_back(29);
+	{
+		std::cout << "Test 1" << std::endl;
+		Span a(10001);
+		a.addNumber(1);
+		std::cout << a.shortestSpan() << std::endl;
+		std::cout << a.longestSpan() << std::endl;
+		std::cout << std::endl;
 
-	deq.push_back(25);
-	deq.push_back(26);
-	deq.push_back(27);
-	deq.push_back(28);
-	deq.push_back(29);
+		std::cout << "Test 2" << std::endl;
+		a.fillTheSpan(10000, 12);
+		a.addNumber(24);
+		std::cout << a.shortestSpan() << std::endl;
+		std::cout << a.longestSpan() << std::endl;
+		std::cout << std::endl;
+	}
+	{
+		std::cout << "Test 3" << std::endl;
+		Span *a = new Span(6);
+		a->addNumber(0);
+		a->addNumber(24);
+		a->addNumber(1);
+		a->addNumber(5);
+		a->addNumber(2);
+		a->addNumber(3);
+		std::cout << a->shortestSpan() << std::endl;
+		std::cout << a->longestSpan() << std::endl;
+		std::cout << std::endl;
 
-	lst.push_back(25);
-	lst.push_back(26);
-	lst.push_back(27);
-	lst.push_back(28);
-	lst.push_back(29);
-
-	easyFind< std::vector <int> >(vec, nbToFind);
-	easyFind< std::deque <int> >(deq, nbToFind);
-	easyFind< std::list <int> >(lst, nbToFind);
-	nbToFind = 12;
-	easyFind< std::vector <int> >(vec, nbToFind);
-	easyFind< std::deque <int> >(deq, nbToFind);
-	easyFind< std::list <int> >(lst, nbToFind);
+		std::cout << "Test 4" << std::endl;
+		Span b(*a);
+		delete a;
+		std::cout << b.shortestSpan() << std::endl;
+		std::cout << b.longestSpan() << std::endl;
+	}
 	return 0;
 }

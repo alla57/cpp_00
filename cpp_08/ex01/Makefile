@@ -4,9 +4,10 @@ RM = rm -rf
 
 CFLAGS = -Wall -Wextra -Werror -I./ -std=c++98
 
-NAME = EasyFind
+NAME = Span
 
 SRC_PATH =	main.cpp	\
+			Span.cpp	\
 
 SRC = $(SRC_PATH)
 

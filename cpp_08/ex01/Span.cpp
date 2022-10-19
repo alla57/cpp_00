@@ -5,24 +5,35 @@ Span::Span(){
 }
 
 Span::Span(unsigned int N) : _capacity(N), _nOfElements(0){
-	_spanArray = new int[N];
+	_spanArray = new std::vector<int>(N);
 }
 
-Span::Span(const Span & src){
+Span::Span(const Span & src) : _spanArray(new std::vector<int>(src._capacity)){
 	*this = src;
 }
 
 Span::~Span(){
-	delete[] _spanArray;
+	delete _spanArray;
 }
 
-const Span & Span::operator=(const Span & rhs){}
+const Span & Span::operator=(const Span & rhs){
+	if (this == &rhs)
+		return (*this);
+	delete _spanArray;
+	_capacity = rhs._capacity;
+	_nOfElements = rhs._nOfElements;
+	_spanArray = new std::vector<int>(_capacity);
+	for (unsigned int i = 0; i < rhs._nOfElements; i++)
+		_spanArray->at(i) = rhs._spanArray->at(i);
+	_nOfElements = rhs._nOfElements;
+	return (*this);
+}
 
 void	Span::addNumber(int nbToAdd){
 	try {
-		if (_nOfElements == _capacity);
-			throw std::exception("Span is full");
-		_spanArray[_nOfElements++] = nbToAdd;
+		if (_nOfElements == _capacity)
+			throw (std::runtime_error("Span is full"));
+		_spanArray->at(_nOfElements++) = nbToAdd;
 	}
 	catch (std::exception & e){
 		std::cout << e.what() << std::endl;
@@ -30,17 +41,32 @@ void	Span::addNumber(int nbToAdd){
 }
 
 int		Span::shortestSpan() const{
-	if (_nOfElements == 0 || _nOfElements == 1)
+	if (_nOfElements <= 1)
 		return (0);
-	int min = _spanArray[0];
-	int secondMin;
-	for (int i = 0; i < _nOfElements; i++)
-	{
-		if (_spanArray[i] < min)
-			min = _spanArray[i];
-	}
-	if (min != _spanArray[i])
+	std::sort(_spanArray->begin(), _spanArray->begin() + _nOfElements);
+	int gap = (*_spanArray)[1] - (*_spanArray)[0];
+	for (unsigned int i = 1; i < _nOfElements; i++)
+		gap = abs(((*_spanArray)[i - 1] - (*_spanArray)[i])) < gap ? abs(((*_spanArray)[i - 1] - (*_spanArray)[i])) : gap;
+	return (gap);
 }
 
 int		Span::longestSpan() const{
+	if (_nOfElements <= 1)
+		return (0);
+	std::sort(_spanArray->begin(), _spanArray->begin() + _nOfElements);
+	return ((*_spanArray)[_nOfElements - 1] - (*_spanArray)[0]);
+}
+
+void	Span::fillTheSpan(int nbOfElementsToSet, int nbToAdd){
+	try {
+		if (_nOfElements == _capacity)
+			throw (std::runtime_error("Span is full"));
+		if (_nOfElements + nbOfElementsToSet > _capacity)
+			throw (std::runtime_error("Span is not wide enough"));
+		std::fill(_spanArray->begin() + _nOfElements, _spanArray->begin() + _nOfElements + nbOfElementsToSet, nbToAdd);
+		_nOfElements += nbOfElementsToSet;
+	}
+	catch (std::exception & e){
+		std::cout << e.what() << std::endl;
+	}
 }
