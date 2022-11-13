@@ -30,14 +30,9 @@ const Span & Span::operator=(const Span & rhs){
 }
 
 void	Span::addNumber(int nbToAdd){
-	try {
-		if (_nOfElements == _capacity)
-			throw (std::runtime_error("Span is full"));
-		_spanArray->at(_nOfElements++) = nbToAdd;
-	}
-	catch (std::exception & e){
-		std::cout << e.what() << std::endl;
-	}
+	if (_nOfElements == _capacity)
+		throw (std::runtime_error("Span is full"));
+	_spanArray->at(_nOfElements++) = nbToAdd;
 }
 
 int		Span::shortestSpan() const{
@@ -58,15 +53,10 @@ int		Span::longestSpan() const{
 }
 
 void	Span::fillTheSpan(int nbOfElementsToSet, int nbToAdd){
-	try {
-		if (_nOfElements == _capacity)
-			throw (std::runtime_error("Span is full"));
-		if (_nOfElements + nbOfElementsToSet > _capacity)
-			throw (std::runtime_error("Span is not wide enough"));
-		std::fill(_spanArray->begin() + _nOfElements, _spanArray->begin() + _nOfElements + nbOfElementsToSet, nbToAdd);
-		_nOfElements += nbOfElementsToSet;
-	}
-	catch (std::exception & e){
-		std::cout << e.what() << std::endl;
-	}
+	if (_nOfElements == _capacity)
+		throw (std::runtime_error("Span is full"));
+	if (_nOfElements + nbOfElementsToSet > _capacity)
+		throw (std::runtime_error("Span is not wide enough"));
+	std::fill(_spanArray->begin() + _nOfElements, _spanArray->begin() + _nOfElements + nbOfElementsToSet, nbToAdd);
+	_nOfElements += nbOfElementsToSet;
 }
