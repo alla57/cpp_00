@@ -2,7 +2,7 @@ CXX = c++
 
 RM = rm -rf
 
-CFLAGS = -Wall -Wextra -Werror -I./ -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -I./ -std=c++98
 
 NAME = EasyFind
 
@@ -21,7 +21,7 @@ fclean : clean
 	$(RM) $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CXX) $(CFLAGS) -o $(NAME) $(SRC)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(SRC)
 
 re : fclean all
 
