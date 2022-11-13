@@ -12,8 +12,18 @@ int main( void )
 		catch (std::exception & e){
 			std::cout << e.what() << std::endl;
 		}
-		std::cout << a.shortestSpan() << std::endl;
-		std::cout << a.longestSpan() << std::endl;
+		try{
+			std::cout << a.shortestSpan() << std::endl;
+		}
+		catch(std::exception & e){
+			std::cout << e.what() << std::endl;
+		}
+		try{
+			std::cout << a.longestSpan() << std::endl;
+		}
+		catch(std::exception & e){
+			std::cout << e.what() << std::endl;
+		}
 		std::cout << std::endl;
 
 		std::cout << "Test 2" << std::endl;

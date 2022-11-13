@@ -37,7 +37,7 @@ void	Span::addNumber(int nbToAdd){
 
 int		Span::shortestSpan() const{
 	if (_nOfElements <= 1)
-		return (0);
+		throw (std::runtime_error("Span is empty or contain only one value"));
 	std::sort(_spanArray->begin(), _spanArray->begin() + _nOfElements);
 	int gap = (*_spanArray)[1] - (*_spanArray)[0];
 	for (unsigned int i = 1; i < _nOfElements; i++)
@@ -47,7 +47,7 @@ int		Span::shortestSpan() const{
 
 int		Span::longestSpan() const{
 	if (_nOfElements <= 1)
-		return (0);
+		throw (std::runtime_error("Span is empty or contain only one value"));
 	std::sort(_spanArray->begin(), _spanArray->begin() + _nOfElements);
 	return ((*_spanArray)[_nOfElements - 1] - (*_spanArray)[0]);
 }
